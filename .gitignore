@@ -1,0 +1,12 @@
+/princesite/node_modules
+/princesite/public/hot
+/princesite/public/storage
+/princesite/storage/*.key
+/princesite/vendor
+/princesite/.idea
+/princesite/.vagrant
+/princesite/Homestead.json
+/princesite/Homestead.yaml
+/princesite/npm-debug.log
+/princesite/yarn-error.log
+/princesite/.env
