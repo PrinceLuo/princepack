@@ -17,18 +17,3 @@ Route::get('/', function () {
 Route::get('/front','Front\FrontController@index');
 Route::get('lang/{locale}', 'Front\FrontController@lang');
 Route::get('/checkSignature','WxPublicPlatformController@initCheck');
-Route::get('/checkSignature',function(){
-    $token = 'luo_test_token';
-    $timestamp = $_GET['timestamp'];
-    $nonce = $_GET['token'];
-    $signature = $_GET['signature'];
-    $tmpArr = array($timestamp,$nonce,$token);
-    sort($tmpArr, SORT_STRING);
-    $tmpStr = implode('', $tmpArr);
-    $tmpStr = sha1( $tmpStr );
-    if($tmpStr == $signature){
-        return TRUE;
-    }else{
-        return FALSE;
-    }
-});

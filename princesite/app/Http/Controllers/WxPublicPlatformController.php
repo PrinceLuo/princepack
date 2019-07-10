@@ -13,14 +13,15 @@ class WxPublicPlatformController extends Controller
         $signature = $request->signature;
         $timestamp = $request->timestamp;
         $nonce = $request->nonce;
+        $echostr = $request->echostr;
         $tmpArr = array($timestamp,$nonce,$token);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $compressed_signature = sha1($tmpStr);
         if($compressed_signature == $signature){
-            return TRUE;
+            return $echostr;
         }else{
-            return FALSE;
+            return '';
         }
     }
 }
