@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/front','Front\FrontController@index');
+Route::get('lang/{locale}', 'Front\FrontController@lang');
+Route::get('/checkSignature','WxPublicPlatformController@initCheck');
