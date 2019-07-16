@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 Route::get('/front','Front\FrontController@index');
 Route::get('lang/{locale}', 'Front\FrontController@lang');
-Route::get('/checkSignature','WxPublicPlatformController@initCheck');
+Route::group(['namespace'=>'Wx'],function(){
+    Route::get('/checkSignature','WxPublicPlatformController@initCheck');
+    Route::get('/test_access_token','WxPublicPlatformController@testAccessToken');
+    Route::get('/upload_logo','WxPublicPlatformController@uploadLogo');
+});

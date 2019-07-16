@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    // An account for sand box
+    'WxPublicPlatformTest' => [
+        'APPID' => 'wx16e767bf6549c5fd',
+        'APPSECRET' => '22cd34c1c95ca5eea0e6b82725210af6',
+    ],
 ];
