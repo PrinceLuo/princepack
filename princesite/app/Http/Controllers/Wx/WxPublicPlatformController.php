@@ -4,44 +4,54 @@ namespace App\Http\Controllers\Wx;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-include app_path().'Util/cardSDK.php';
+//include app_path().'Util/cardSDK.php';
 
 class WxPublicPlatformController extends Controller {
 
     //
     public function initCheck(Request $request) {
           
-/*
-        $token = 'luo_test_token';
+
+//        $token = 'luo_test_token';
+        $token = 'wechat_token_20190715';
         $signature = $request->signature;
+        \Illuminate\Support\Facades\Log::info('Check the signature from request: '. $signature);
+//        $signature = '';
         $timestamp = $request->timestamp;
+//        $timestamp = time();
+//        echo $timestamp."<br>";
         $nonce = $request->nonce;
+//        $nonce = 12345;
+        
         $echostr = $request->echostr;
+//        $echostr = 'abcde';
         $tmpArr = array($timestamp, $nonce, $token);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $compressed_signature = sha1($tmpStr);
+//        var_dump($compressed_signature);die();
+        \Illuminate\Support\Facades\Log::info('Check the signature we made: '.$compressed_signature);
         if ($compressed_signature == $signature) {
             return $echostr;
         } else {
-            return '';
+            return 'Fail.';
         }
- */
-        $token = 'wechat_token_20190715';
-        $signature = $request->signature;
-        $timestamp = $request->timestamp;
-        $nonce = $request->nonce;
-        $echostr = $request->echostr;
-        $signature_obj = new Signature();
-        $signature_obj->add_data($token);
-        $signature_obj->add_data($timestamp);
-        $signature_obj->add_data($nonce);
-        $encrypt_signature = $signature_obj->get_signature();
-        if($encrypt_signature == $signature){
-            return $echostr;
-        }else{
-            return NULL;
-        }
+ 
+//        $token = 'wechat_token_20190715';
+//        $signature = $request->signature;
+//        $timestamp = $request->timestamp;
+//        $nonce = $request->nonce;
+//        $echostr = $request->echostr;
+//        $signature_obj = new Signature();
+//        $signature_obj->add_data($token);
+//        $signature_obj->add_data($timestamp);
+//        $signature_obj->add_data($nonce);
+//        $encrypt_signature = $signature_obj->get_signature();
+//        if($encrypt_signature == $signature){
+//            return $echostr;
+//        }else{
+//            return NULL;
+//        }
     }
 
     /*
